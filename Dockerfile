@@ -27,7 +27,5 @@ RUN mkdir -p /app/pdf /app/html /app/markdown /app/extracted_images
 # Suppress log for MCP stdio communication
 ENV PYTHONWARNINGS=ignore
 
-# MCP server communicates via stdio, so no port is needed
-
 # Run the application
 CMD ["python", "main.py"] 
