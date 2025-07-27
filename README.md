@@ -27,7 +27,7 @@ A Model Context Protocol (MCP) server that enables AI agents to download, conver
 - Docker (recommended) 
 - Claude Desktop for MCP client testing
 
-## Quick Start with Docker
+## Start with Docker
 
 ### 1. Build the Docker Image
 
@@ -74,6 +74,26 @@ Replace `{AbsolutePath}` with your actual project path.
 ### 3. Restart Claude Desktop
 
 Close and reopen Claude Desktop to load the MCP server.
+
+
+
+### 4. Example Usage Workflow
+
+Here's a complete example prompt for Claude Desktop:
+
+```
+From downloading SEC EDGAR public files to Markdown conversion, please do the following in order. If the contents are in the folder when creating files, do not create them.
+
+1. First, download the latest public HTML file of CIK 1018724, Year 2024, Form DEF 14A type from SEC EDGAR.
+
+2. Converts downloaded HTML files to PDFs.
+
+3. Convert the converted PDF file to Markdown.
+Check the PDF size and wait for the Markdown text return if the size is small.
+If the size is large, the Markdown text will not output immediately, and the conversion will take a long time, so wait and see the file in /markdown.
+
+4. All steps run sequentially, and if the file is small, please wait for the Markdown conversion to complete. Avoid additional commands before completing.
+```
 
 ## API Documentation
 
@@ -143,23 +163,6 @@ download_sec_filing("1018724", 2024, "8-K", "amzn_2024_8k")
 
 **Returns**: Path to the main HTML filing (e.g., `html/amzn_2024_8k/amzn-20241031.htm`)
 
-## Example Usage Workflow
-
-Here's a complete example prompt for Claude Desktop:
-
-```
-From downloading SEC EDGAR public files to Markdown conversion, please do the following in order. If the contents are in the folder when creating files, do not create them.
-
-1. First, download the latest public HTML file of CIK 1018724, Year 2024, Form DEF 14A type from SEC EDGAR.
-
-2. Converts downloaded HTML files to PDFs.
-
-3. Convert the converted PDF file to Markdown.
-Check the PDF size and wait for the Markdown text return if the size is small.
-If the size is large, the Markdown text will not output immediately, and the conversion will take a long time, so wait and see the file in /markdown.
-
-4. All steps run sequentially, and if the file is small, please wait for the Markdown conversion to complete. Avoid additional commands before completing.
-```
 
 ## Project Structure
 
