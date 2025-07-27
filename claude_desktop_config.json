@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "sec-edgar": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "--volume",
+        "/{AbsolutePath}/app/pdf:/app/pdf",
+        "--volume",
+        "/{AbsolutePath}/app/html:/app/html",
+        "--volume",
+        "/{AbsolutePath}/app/markdown:/app/markdown",
+        "--volume",
+        "/{AbsolutePath}/app/extracted_images:/app/extracted_images",
+        "deepauto-mcp"
+      ],
+      "env": {}
+    }
+  }
+}

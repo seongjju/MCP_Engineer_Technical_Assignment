@@ -1,0 +1,5 @@
+fastmcp
+docling
+docling[pdf]
+playwright
+requests 
